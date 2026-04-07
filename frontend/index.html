@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Agent</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Research Agent</h1>
+        <p class="description">AI-powered research assistant. Enter a question: the agent searches the web, cross-verifies information from multiple sources, and delivers a verified summary.</p>
+
+        <form id="research-form">
+            <div class="search-bar">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+                <input type="text" id="prompt" placeholder="Enter your research question..." required minlength="3" maxlength="2000">
+            </div>
+        </form>
+
+        <div id="loading-section" class="hidden">
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p class="loading-text" id="loading-text">Searching...</p>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <div id="result-content"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
