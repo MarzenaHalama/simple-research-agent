@@ -2,6 +2,12 @@
 
 AI research agent powered by Google Gemini with Google Search grounding. Automatically searches, cross-verifies, and summarizes information from multiple sources in iterative steps.
 
+### Author 
+Marzena Halama
+
+<img width="612" height="424" alt="image" src="https://github.com/user-attachments/assets/12cb484b-16a8-4658-ac33-b5e601fdc90a" />
+
+
 ## Project Structure
 
 ```
@@ -9,9 +15,14 @@ Simple_agent/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py      # client, tools, and model configuration
-│   ├── agent.py       # agent logic (run_agent + streaming)
+│   ├── agent.py       # agent logic (blocking + streaming)
 │   ├── api.py         # FastAPI REST + SSE endpoints
+│   ├── models.py      # Pydantic request/response models
 │   └── main.py        # CLI entry point
+├── frontend/
+│   ├── index.html     # main page
+│   ├── style.css      # styles
+│   └── script.js      # search bar + SSE streaming logic
 ├── .env               # API key (do not commit!)
 ├── .gitignore
 ├── requirements.txt
