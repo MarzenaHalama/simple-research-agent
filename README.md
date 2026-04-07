@@ -9,8 +9,9 @@ Simple_agent/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py      # client, tools, and model configuration
-│   ├── agent.py       # agent logic (run_agent)
-│   └── main.py        # entry point
+│   ├── agent.py       # agent logic (run_agent + streaming)
+│   ├── api.py         # FastAPI REST + SSE endpoints
+│   └── main.py        # CLI entry point
 ├── .env               # API key (do not commit!)
 ├── .gitignore
 ├── requirements.txt
@@ -33,8 +34,39 @@ GOOGLE_API_KEY=your_api_key
 
 ## Usage
 
+### CLI
+
 ```bash
 python -m src.main
+```
+
+### API Server
+
+```bash
+uvicorn src.api:app --reload
+```
+
+The server starts at `http://127.0.0.1:8000`. Interactive docs at `/docs`.
+
+### API Endpoints
+
+**Health check:**
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+**Research (blocking — returns full result):**
+```bash
+curl -X POST http://127.0.0.1:8000/research \
+  -H "Content-Type: application/json" \
+  -d "{\"prompt\": \"What is quantum computing?\"}"
+```
+
+**Research with streaming (SSE — real-time updates):**
+```bash
+curl -X POST http://127.0.0.1:8000/research/stream \
+  -H "Content-Type: application/json" \
+  -d "{\"prompt\": \"What is quantum computing?\"}"
 ```
 
 ## How It Works
