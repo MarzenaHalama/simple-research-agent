@@ -23,7 +23,7 @@ Simple_agent/
 │   ├── index.html     # main page
 │   ├── style.css      # styles
 │   └── script.js      # search bar + SSE streaming logic
-├── .env               # API key (do not commit!)
+├── .env               # API key 
 ├── .gitignore
 ├── requirements.txt
 └── README.md
